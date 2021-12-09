@@ -1,6 +1,7 @@
 package com.toktok;
 
 import android.app.Application;
+import android.os.Bundle;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
