@@ -22,16 +22,46 @@ function Main({navigation}){
     const styles = StyleSheet.create({
       container:{
         flex:1,
-        justifyContent:'center',
-        hieght:win.height,
+        justifyContent:'space-around',
         alignItems: 'center',
         backgroundColor:'white'
       },
-      imgs:{
-        resizeMode: 'cover',
-        width: win.width,
-        height: win.height,
+      maintext:{
+        fontSize: 35,
+        color: '#1a73e8',
       },
+      button:{
+        justifyContent:'center',
+        alignItems: 'center',
+        width: 250,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: '#2196f3'
+      },
+    
+      input:{
+        borderWidth: 2,
+        borderRadius: 5,
+        justifyContent:'center',
+        alignItems: 'center',
+        width: 250,
+        height: 40,
+        borderRadius: 20,
+      },
+      card:{
+        width: 200,
+        height: 150,
+        justifyContent:'space-around',
+        alignItems: 'center',
+        elevation: 2,
+        backgroundColor:'#fff',
+        borderRadius: 25,
+      },
+      text: {
+        fontSize: 18,
+        textAlign: 'center',
+        color: 'white'
+    }
     });
 
 
@@ -60,9 +90,30 @@ function Main({navigation}){
 
     if(entiredata != ''){
       return(
-        <KeyboardAwareScrollView contentContainerStyle={styles.container}>
-        <Image style={styles.imgs} source={mainImg}/>
-      </KeyboardAwareScrollView>
+        <View style = {styles.container}>
+          <View>
+           <Text style = {styles.maintext}>{Time}</Text>
+           <Text
+          style={{
+            fontSize: 20,
+            textAlign: 'right',
+          }}
+        > {entiredata[0].stateTime}</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style = {{fontSize : 20, color:'#1a73e8'}}>confirmed cases</Text>
+          <Text>today: <Text style={{color:'red'}}>{entiredata[0].decideCnt - entiredata[1].decideCnt}</Text></Text>
+          <Text>total: {entiredata[0].decideCnt}</Text>
+        </View>
+        <View style={styles.card}>
+          <Text style = {{fontSize : 20, color:'#1a73e8'}}>dead</Text>
+          <Text>today : <Text style={{color:'red'}}>{entiredata[0].deathCnt - entiredata[1].deathCnt}</Text></Text>
+          <Text>total : {entiredata[0].deathCnt}</Text>
+        </View>
+        <TouchableOpacity style={styles.button} onPress={()=>navigation.push('RoleSelect')}>
+          <Text style = {styles.text}>Logout</Text>
+        </TouchableOpacity>
+        </View>
     )
     }
    return(<Text>Loading...</Text>)

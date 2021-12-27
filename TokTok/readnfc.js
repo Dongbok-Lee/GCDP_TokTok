@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { TouchableOpacity, Image, StyleSheet, Text, View } from "react-native";
 import NfcManager, {NfcEvents,Ndef} from 'react-native-nfc-manager';
-import axios from 'axois';
+import axios from 'axios';
 import  AsyncStorage  from "@react-native-async-storage/async-storage";
 
 export async  function initNfc() {
