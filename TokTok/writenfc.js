@@ -27,8 +27,8 @@ export async function writeNdef() {
       alertMessage: 'Ready to write some NDEF',
     });
 
-    const bytes = Ndef.encodeMessage([Ndef.textRecord("{name: 한남대 파스타, address: 대전광역시 대덕구 한남로 70 한남대학교}")]);
-    console.log(Ndef.textRecord(entireData));
+    const bytes = Ndef.encodeMessage([Ndef.textRecord(JSON.stringify(entireData))]);
+    console.log(Ndef.textRecord(JSON.stringify(entireData)));
 
     if (bytes) {
       await NfcManager.ndefHandler // Step2

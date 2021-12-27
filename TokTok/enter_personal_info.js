@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import PersonalImage from './src/res/images/personalimg.jpg';
 
+
 const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
